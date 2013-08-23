@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>redis-actionpack by redis-store</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">redis-actionpack</h1>
+        <p class="header">Redis stores for ActionPack</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/redis-store/redis-actionpack/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/redis-store/redis-actionpack/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/redis-store/redis-actionpack">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/redis-store">redis-store</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="redis-stores-for-actionpack" class="anchor" href="#redis-stores-for-actionpack"><span class="octicon octicon-link"></span></a>Redis stores for ActionPack</h1>
+
+<p><strong><code>redis-actionpack</code></strong> provides a session store for <strong>ActionPack</strong>, specifically for <strong>ActionDispatch</strong>. See the main <a href="https://github.com/redis-store/redis-store">redis-store readme</a> for general guidelines.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight"><pre><span class="c1"># Gemfile</span>
+<span class="n">gem</span> <span class="s1">'redis-actionpack'</span>
+</pre></div>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>If you are using redis-store with Rails, consider using the <a href="https://github.com/redis-store/redis-rails">redis-rails gem</a> instead. For standalone usage:</p>
+
+<div class="highlight"><pre><span class="ss">ActionController</span><span class="p">:</span><span class="ss">:Base</span><span class="o">.</span><span class="n">cache_store</span> <span class="o">=</span> <span class="ss">ActionDispatch</span><span class="p">:</span><span class="ss">:Session</span><span class="o">::</span><span class="no">RedisSessionStore</span><span class="o">.</span><span class="n">new</span>
+</pre></div>
+
+<h2>
+<a name="running-tests" class="anchor" href="#running-tests"><span class="octicon octicon-link"></span></a>Running tests</h2>
+
+<pre lang="shell"><code>gem install bundler
+git clone git://github.com/redis-store/redis-actionpack.git
+cd redis-actionpack
+bundle install
+bundle exec rake
+</code></pre>
+
+<p>If you are on <strong>Snow Leopard</strong> you have to run <code>env ARCHFLAGS="-arch x86_64" bundle exec rake</code></p>
+
+<h2>
+<a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
+
+<p>(c) 2009 - 2013 Luca Guidi - <a href="http://lucaguidi.com">http://lucaguidi.com</a>, released under the MIT license</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
