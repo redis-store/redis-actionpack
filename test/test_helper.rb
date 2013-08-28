@@ -1,4 +1,3 @@
-require 'bundler/setup'
 require 'minitest/autorun'
 require 'active_support/core_ext/numeric/time'
 
@@ -20,5 +19,11 @@ def with_autoload_path(path)
       ActiveSupport::Dependencies.autoload_paths.reject! {|p| p == path}
       ActiveSupport::Dependencies.clear
     end
+  end
+end
+
+unless respond_to?(:assert_block)
+  def assert_block(*msgs)
+    assert yield, *msgs
   end
 end

@@ -11,7 +11,8 @@ gem 'redis-actionpack'
 
 ## Usage
 
-If you are using redis-store with Rails, consider using the [redis-rails gem](https://github.com/redis-store/redis-rails) instead. For standalone usage:
+If you are using redis-store with Rails, consider using the [redis-rails gem](https://github.com/redis-store/redis-rails) instead.
+For standalone usage:
 
 ```ruby
 ActionController::Base.cache_store = ActionDispatch::Session::RedisSessionStore.new
@@ -23,6 +24,7 @@ ActionController::Base.cache_store = ActionDispatch::Session::RedisSessionStore.
 gem install bundler
 git clone git://github.com/redis-store/redis-actionpack.git
 cd redis-actionpack
+git checkout -t origin/3.2.x
 bundle install
 bundle exec rake
 ```
@@ -31,7 +33,7 @@ If you are on **Snow Leopard** you have to run `env ARCHFLAGS="-arch x86_64" bun
 
 ## Status
 
-[![Gem Version](https://badge.fury.io/rb/redis-actionpack.png)](http://badge.fury.io/rb/redis-actionpack) [![Build Status](https://secure.travis-ci.org/redis-store/redis-actionpack.png?branch=master)](http://travis-ci.org/jodosha/redis-actionpack?branch=master) [![Code Climate](https://codeclimate.com/github/jodosha/redis-store.png)](https://codeclimate.com/github/redis-store/redis-actionpack)
+[![Build Status](https://secure.travis-ci.org/redis-store/redis-actionpack.png?branch=3.2.x)](http://travis-ci.org/jodosha/redis-actionpack?branch=3.2.x)
 
 ## Copyright
 
