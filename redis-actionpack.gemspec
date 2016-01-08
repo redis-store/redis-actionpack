@@ -21,14 +21,13 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'redis-store', '~> 1.1.0'
   s.add_runtime_dependency 'redis-rack',  '~> 1.5.0'
-  s.add_runtime_dependency 'actionpack',  '> 4', '< 6'
+  s.add_runtime_dependency 'actionpack',  '>= 4.0.0', '< 6'
 
   s.add_development_dependency 'rake',     '~> 10'
   s.add_development_dependency 'bundler',  '~> 1.3'
   s.add_development_dependency 'mocha',    '~> 0.14.0'
-  s.add_development_dependency 'minitest', '~> 4.2'
+  s.add_development_dependency 'minitest-spec-rails'
   s.add_development_dependency 'tzinfo'
-  s.add_development_dependency 'mini_specunit'
   s.add_development_dependency 'mini_backtrace'
   s.add_development_dependency 'redis-store-testing'
 end
