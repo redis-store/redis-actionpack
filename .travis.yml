@@ -4,7 +4,7 @@ script: 'bundle exec rake'
 rvm:
   - 1.9.3
   - 2.0.0
-  - 2.1 
+  - 2.1
   - 2.2
   - 2.3.0
   - ruby-head
@@ -12,7 +12,20 @@ rvm:
   - jruby-19mode
   - jruby-head
 
+gemfile:
+  - test/gemfiles/Gemfile.rails-4.0.x
+  - test/gemfiles/Gemfile.rails-4.1.x
+  - test/gemfiles/Gemfile.rails-4.2.x
+  - test/gemfiles/Gemfile.rails-5.0.x
+
 matrix:
+  exclude:
+    - rvm: 1.9.3
+      gemfile: test/gemfiles/Gemfile.rails-5.0.beta
+    - rvm: 2.0.0
+      gemfile: test/gemfiles/Gemfile.rails-5.0.beta
+    - rvm: 2.1
+      gemfile: test/gemfiles/Gemfile.rails-5.0.beta
   allow_failures:
     - rvm: jruby-head
     - rvm: ruby-head
