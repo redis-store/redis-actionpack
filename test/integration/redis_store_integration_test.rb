@@ -197,12 +197,12 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
     # from actionpack/test/abstract_unit.rb
     def self.build_app(routes = nil)
       RoutedRackApp.new(routes || ActionDispatch::Routing::RouteSet.new) do |middleware|
-        middleware.use "ActionDispatch::DebugExceptions"
-        middleware.use "ActionDispatch::Callbacks"
-        middleware.use "ActionDispatch::ParamsParser"
-        middleware.use "ActionDispatch::Cookies"
-        middleware.use "ActionDispatch::Flash"
-        middleware.use "Rack::Head"
+        middleware.use ActionDispatch::DebugExceptions
+        middleware.use ActionDispatch::Callbacks
+        middleware.use ActionDispatch::ParamsParser
+        middleware.use ActionDispatch::Cookies
+        middleware.use ActionDispatch::Flash
+        middleware.use Rack::Head
         yield(middleware) if block_given?
       end
     end
