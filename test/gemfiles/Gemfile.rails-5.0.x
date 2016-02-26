@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 gemspec :path => './../..'
 
-if ::File.directory?(gem_path = '../redis-store')
-  gem 'redis-store', '~> 1.1.0', path: gem_path
-end
+gem 'redis-store', github: 'redis-store/redis-store'
+#if ::File.directory?(gem_path = '../redis-store')
+#  gem 'redis-store', '~> 1.1.0', path: gem_path
+#end
 
 gem 'redis-rack', github: 'redis-store/redis-rack'
 #if ::File.directory?(gem_path = '../redis-rack')
