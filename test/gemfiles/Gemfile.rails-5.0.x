@@ -10,4 +10,4 @@ gem 'redis-rack', github: 'redis-store/redis-rack'
 #  gem 'redis-rack', '~> 1.5.0', path: gem_path
 #end
 
-gem 'actionpack', '~> 5.0.0.beta1'
+gem 'actionpack', '~> 5.0.0.beta3'
