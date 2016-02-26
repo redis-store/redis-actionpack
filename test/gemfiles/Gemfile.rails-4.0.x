@@ -10,3 +10,5 @@ if ::File.directory?(gem_path = '../redis-rack')
 end
 
 gem 'actionpack', '~> 4.0.0'
+
+gem 'minitest-spec-rails', '~> 4.7'
