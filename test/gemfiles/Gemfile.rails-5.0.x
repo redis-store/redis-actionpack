@@ -13,3 +13,5 @@ gem 'redis-rack', github: 'redis-store/redis-rack'
 
 gem 'rails', '5.0.0.beta3'
 
+gem 'minitest-spec-rails', '~> 5.3.0'
+
