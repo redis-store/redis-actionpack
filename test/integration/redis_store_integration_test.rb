@@ -43,6 +43,56 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
     end
   end
 
+  test "should set a non-secure cookie by default" do
+    with_test_route_set do
+      https!
+
+      get '/set_session_value'
+      assert_response :success
+
+      cookie = cookies.instance_variable_get('@cookies').first
+
+      assert !cookie.secure?
+    end
+  end
+
+  test "should set a secure cookie when the 'secure' option is set" do
+    with_test_route_set(secure: true) do
+      https!
+
+      get '/set_session_value'
+      assert_response :success
+
+      cookie = cookies.instance_variable_get('@cookies').first
+
+      assert cookie.secure?
+    end
+  end
+
+  test "should set a http-only cookie by default" do
+    with_test_route_set do
+      get '/set_session_value'
+      assert_response :success
+
+      cookie = cookies.instance_variable_get('@cookies').first
+      options = cookie.instance_variable_get('@options')
+
+      assert options.key?('HttpOnly')
+    end
+  end
+
+  test "should set a non-http-only cookie when the 'httponlty' option is set to false" do
+    with_test_route_set(httponly: false) do
+      get '/set_session_value'
+      assert_response :success
+
+      cookie = cookies.instance_variable_get('@cookies').first
+      options = cookie.instance_variable_get('@options')
+
+      assert !options.key?('HttpOnly')
+    end
+  end
+
   test "should not send cookies on write, not read" do
     with_test_route_set do
       get '/get_session_value'
