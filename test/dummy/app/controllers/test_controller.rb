@@ -19,12 +19,12 @@ class TestController < ActionController::Base
   end
 
   def get_session_value
-    render :text => "foo: #{session[:foo].inspect}"
+    render plain: "foo: #{session[:foo].inspect}"
   end
 
   def get_session_id
     session_id = request.session_options[:id] || cookies["_session_id"]
-    render :text => session_id
+    render plain: session_id
   end
 
   def call_reset_session

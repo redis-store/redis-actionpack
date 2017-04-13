@@ -178,7 +178,7 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
 
       reset!
 
-      get '/set_session_value', :_session_id => session_id
+      get '/set_session_value', headers: { _session_id: session_id }
       assert_response :success
       assert(cookies['_session_id'] != session_id)
     end
@@ -249,7 +249,7 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
       RoutedRackApp.new(routes || ActionDispatch::Routing::RouteSet.new) do |middleware|
         middleware.use ActionDispatch::DebugExceptions
         middleware.use ActionDispatch::Callbacks
-        middleware.use ActionDispatch::ParamsParser
+        # middleware.use ActionDispatch::ParamsParser
         middleware.use ActionDispatch::Cookies
         middleware.use ActionDispatch::Flash
         middleware.use Rack::Head
@@ -261,7 +261,13 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
     def with_test_route_set(options = {})
       with_routing do |set|
         set.draw do
-          get ':action', :to => ::TestController
+          get :no_session_access,             to: 'test#no_session_access'
+          get :set_session_value,             to: 'test#set_session_value'
+          get :set_session_value_with_expiry, to: 'test#set_session_value_with_expiry'
+          get :set_serialized_session_value,  to: 'test#set_serialized_session_value'
+          get :get_session_value,             to: 'test#get_session_value'
+          get :get_session_id,                to: 'test#get_session_id'
+          get :call_reset_session,            to: 'test#call_reset_session'
         end
         options = { :key => SessionKey }.merge!(options)
         @app = self.class.build_app(set) do |middleware|
