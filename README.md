@@ -14,7 +14,7 @@ gem 'redis-actionpack'
 If you are using redis-store with Rails, consider using the [redis-rails gem](https://github.com/redis-store/redis-rails) instead. For standalone usage:
 
 ```ruby
-ActionController::Base.cache_store = ActionDispatch::Session::RedisSessionStore.new
+ActionController::Base.cache_store = ActionDispatch::Session::RedisStore.new
 ```
 
 ## Running tests
