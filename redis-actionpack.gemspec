@@ -26,6 +26,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'mocha',    '~> 0.14.0'
   s.add_development_dependency 'minitest-rails'
   s.add_development_dependency 'tzinfo'
-  # s.add_development_dependency 'mini_backtrace'
   s.add_development_dependency 'redis-store-testing'
+  s.add_development_dependency 'appraisal'
 end

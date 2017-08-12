@@ -3,3 +3,4 @@ test/gemfiles/*.lock
 *.gem
 tmp/
 stdout
+gemfiles/vendor

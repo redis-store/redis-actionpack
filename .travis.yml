@@ -8,12 +8,23 @@ rvm:
 - 2.6
 - ruby-head
 gemfile:
-  - test/gemfiles/Gemfile.rails-5.0.x
-  - test/gemfiles/Gemfile.rails-6.0.x
+  - gemfiles/rails_4.0.x.gemfile
+  - gemfiles/rails_4.1.x.gemfile
+  - gemfiles/rails_4.2.x.gemfile
+  - gemfiles/rails_5.0.x.gemfile
+
 matrix:
   exclude:
-  - rvm: 2.1
-    gemfile: test/gemfiles/Gemfile.rails-5.0.x
+    - rvm: 1.9.3
+      gemfile: gemfiles/rails_5.0.x.gemfile
+    - rvm: 2.0
+      gemfile: gemfiles/rails_5.0.x.gemfile
+    - rvm: 2.1
+      gemfile: gemfiles/rails_5.0.x.gemfile
+    - rvm: ruby-head
+      gemfile: gemfiles/rails_4.0.x.gemfile
+    - rvm: ruby-head
+      gemfile: gemfiles/rails_4.1.x.gemfile
   allow_failures:
   - rvm: ruby-head
   - rvm: jruby-head
