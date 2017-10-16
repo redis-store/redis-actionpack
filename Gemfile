@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 gemspec
-gem 'redis-store-testing', path: '../testing'
+gem 'redis-store-testing' #, path: '../testing'
