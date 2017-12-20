@@ -2,6 +2,12 @@
 
 __`redis-actionpack`__ provides a session store for __ActionPack__, specifically for __ActionDispatch__. See the main [redis-store readme](https://github.com/redis-store/redis-store) for general guidelines.
 
+For guidelines on using our underlying cache store, see the main [redis-store readme](https://github.com/redis-store/redis-store).
+
+For information on how to use this library in a Rails app, see the [documentation for redis-rails](https://github.com/redis-store/redis-rails).
+
+If, for some reason, you're using `ActionDispatch` and not in a Rails app, read on to learn how to install/use this gem by itself!
+
 ## Installation
 
 ```ruby
