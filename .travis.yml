@@ -1,31 +1,37 @@
 language: ruby
 before_install: gem install bundler
-script: 'bundle exec rake'
+script: bundle exec rake
 rvm:
-  - 1.9.3
-  - 2.0
-  - 2.1
-  - 2.2.4
-  - 2.3.1
-  - ruby-head
-
+- 1.9.3
+- 2.0
+- 2.1
+- 2.2.4
+- 2.3.1
+- ruby-head
 gemfile:
-  - test/gemfiles/Gemfile.rails-4.0.x
-  - test/gemfiles/Gemfile.rails-4.1.x
-  - test/gemfiles/Gemfile.rails-4.2.x
-  - test/gemfiles/Gemfile.rails-5.0.x
-
+- test/gemfiles/Gemfile.rails-4.0.x
+- test/gemfiles/Gemfile.rails-4.1.x
+- test/gemfiles/Gemfile.rails-4.2.x
+- test/gemfiles/Gemfile.rails-5.0.x
 matrix:
   exclude:
-    - rvm: 1.9.3
-      gemfile: test/gemfiles/Gemfile.rails-5.0.x
-    - rvm: 2.0
-      gemfile: test/gemfiles/Gemfile.rails-5.0.x
-    - rvm: 2.1
-      gemfile: test/gemfiles/Gemfile.rails-5.0.x
-    - rvm: ruby-head
-      gemfile: test/gemfiles/Gemfile.rails-4.0.x
-    - rvm: ruby-head
-      gemfile: test/gemfiles/Gemfile.rails-4.1.x
+  - rvm: 1.9.3
+    gemfile: test/gemfiles/Gemfile.rails-5.0.x
+  - rvm: 2.0
+    gemfile: test/gemfiles/Gemfile.rails-5.0.x
+  - rvm: 2.1
+    gemfile: test/gemfiles/Gemfile.rails-5.0.x
+  - rvm: ruby-head
+    gemfile: test/gemfiles/Gemfile.rails-4.0.x
+  - rvm: ruby-head
+    gemfile: test/gemfiles/Gemfile.rails-4.1.x
   allow_failures:
-    - rvm: ruby-head
+  - rvm: ruby-head
+deploy:
+  provider: rubygems
+  api_key:
+    secure: edRiCZPzp3pqBQn3hjeG5WqUNf0eEb8/Ea2VY0jJfQfOHxOYJSATkpdZ5xxOL1YIefk7ERUURY3dKwS/qdSIF2h954QPeOChLTlSaWtFjSNAZIAhH7Ks4vN/q1i7JAWtJRCBOtHlAe9AJj7CvHpUsry3+oHsJ+gXaaA9lntbheE=
+  gem: redis-actionpack
+  on:
+    tags: true
+    repo: redis-store/redis-actionpack
