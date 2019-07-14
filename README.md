@@ -37,9 +37,9 @@ If you are on **Snow Leopard** you have to run `env ARCHFLAGS="-arch x86_64" bun
 
 ## Status
 
-[![Gem Version](https://badge.fury.io/rb/redis-actionpack.png)](http://badge.fury.io/rb/redis-actionpack) 
-[![Build Status](https://secure.travis-ci.org/redis-store/redis-actionpack.png?branch=master)](http://travis-ci.org/redis-store/redis-actionpack?branch=master) 
-[![Code Climate](https://codeclimate.com/github/redis-store/redis-actionpack.png)](https://codeclimate.com/github/redis-store/redis-actionpack)
+[![Gem Version](https://badge.fury.io/rb/redis-actionpack.svg)](http://badge.fury.io/rb/redis-actionpack) 
+[![Build Status](https://secure.travis-ci.org/redis-store/redis-actionpack.svg?branch=master)](http://travis-ci.org/redis-store/redis-actionpack?branch=master) 
+[![Code Climate](https://codeclimate.com/github/redis-store/redis-actionpack.svg)](https://codeclimate.com/github/redis-store/redis-actionpack)
 
 ## Copyright
 
