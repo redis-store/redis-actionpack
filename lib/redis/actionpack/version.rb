@@ -1,5 +1,5 @@
 class Redis
   module ActionPack
-    VERSION = '5.0.2'
+    VERSION = '5.1.0'
   end
 end
