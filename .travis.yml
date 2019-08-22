@@ -8,10 +8,8 @@ rvm:
 - 2.6
 - ruby-head
 gemfile:
-- test/gemfiles/Gemfile.rails-4.0.x
-- test/gemfiles/Gemfile.rails-4.1.x
-- test/gemfiles/Gemfile.rails-4.2.x
-- test/gemfiles/Gemfile.rails-5.0.x
+  - test/gemfiles/Gemfile.rails-5.0.x
+  - test/gemfiles/Gemfile.rails-6.0.x
 matrix:
   exclude:
   - rvm: 2.1
