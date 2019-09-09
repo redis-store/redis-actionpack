@@ -10,22 +10,25 @@ rvm:
   - 2.5
   - 2.6
   - ruby-head
+  - jruby-head
 gemfile:
   - gemfiles/rails_4.0.x.gemfile
   - gemfiles/rails_4.1.x.gemfile
   - gemfiles/rails_4.2.x.gemfile
   - gemfiles/rails_5.0.x.gemfile
-
+  - gemfiles/rails_5.1.x.gemfile
+  - gemfiles/rails_5.2.x.gemfile
+  - gemfiles/rails_6.0.x.gemfile
 matrix:
   exclude:
     - rvm: 1.9.3
       gemfile: gemfiles/rails_5.0.x.gemfile
-    - rvm: 2.0
-      gemfile: gemfiles/rails_5.0.x.gemfile
-    - rvm: 2.1
-      gemfile: gemfiles/rails_5.0.x.gemfile
-    - rvm: 2.2
-      gemfile: gemfiles/rails_5.0.x.gemfile
+    # - rvm: 2.0
+    #   gemfile: gemfiles/rails_5.0.x.gemfile
+    # - rvm: 2.1
+    #   gemfile: gemfiles/rails_5.0.x.gemfile
+    # - rvm: 2.2
+    #   gemfile: gemfiles/rails_5.0.x.gemfile
     - rvm: ruby-head
       gemfile: gemfiles/rails_4.0.x.gemfile
     - rvm: ruby-head
@@ -41,8 +44,8 @@ matrix:
     - rvm: 2.4
       gemfile: gemfiles/rails_6.0.x.gemfile
   allow_failures:
-  - rvm: ruby-head
-  - rvm: jruby-head
+    - rvm: ruby-head
+    - rvm: jruby-head
 deploy:
   provider: rubygems
   api_key:
