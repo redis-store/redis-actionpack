@@ -83,7 +83,7 @@ DEPENDENCIES
   actionpack (~> 4.2.0)
   appraisal
   bundler
-  minitest-rails (~> 2.2.0)
+  minitest-rails
   mocha (~> 0.14.0)
   rake (~> 10)
   redis-actionpack!
