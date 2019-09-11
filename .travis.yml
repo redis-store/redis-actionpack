@@ -1,5 +1,5 @@
 language: ruby
-before_install: gem install bundler $(ruby bin/bundler-version-options.rb)
+# before_install: gem install bundler $(ruby bin/bundler-version-options.rb)
 script: bundle exec rake
 rvm:
   - 2.0
