@@ -16,10 +16,11 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = []
   s.require_paths = ['lib']
+  s.required_ruby_version = '>= 2.3.0'
 
   s.add_runtime_dependency 'redis-store', '>= 1.1.0', '< 2'
   s.add_runtime_dependency 'redis-rack',  '>= 1', '< 3'
-  s.add_runtime_dependency 'actionpack',  '>= 4.0', '< 7'
+  s.add_runtime_dependency 'actionpack',  '>= 5', '< 7'
 
   s.add_development_dependency 'rake',     '~> 10'
   s.add_development_dependency 'bundler'
