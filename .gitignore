@@ -1,5 +1,5 @@
 Gemfile.lock
-test/gemfiles/*.lock
+gemfiles/*.lock
 *.gem
 tmp/
 stdout
