@@ -14,18 +14,19 @@ Gem::Specification.new do |s|
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.executables   = []
   s.require_paths = ['lib']
+  s.required_ruby_version = '>= 2.3.0'
 
   s.add_runtime_dependency 'redis-store', '>= 1.1.0', '< 2'
   s.add_runtime_dependency 'redis-rack',  '>= 1', '< 3'
-  s.add_runtime_dependency 'actionpack',  '>= 4.0', '< 7'
+  s.add_runtime_dependency 'actionpack',  '>= 5', '< 7'
 
   s.add_development_dependency 'rake',     '~> 10'
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'mocha',    '~> 0.14.0'
   s.add_development_dependency 'minitest-rails'
   s.add_development_dependency 'tzinfo'
-  # s.add_development_dependency 'mini_backtrace'
   s.add_development_dependency 'redis-store-testing'
+  s.add_development_dependency 'appraisal'
 end
