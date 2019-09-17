@@ -69,6 +69,20 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
     end
   end
 
+  test "should set a signed cookie when the 'signed' option is set" do
+    with_test_route_set(signed: true) do
+      https!
+
+      get '/set_session_value'
+      assert_response :success
+
+      cookie = cookies.instance_variable_get('@cookies').first
+
+      assert_includes cookie.raw, '_session_id='
+    end
+  end
+
+
   test "should set a http-only cookie by default" do
     with_test_route_set do
       get '/set_session_value'
@@ -238,8 +252,17 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
       def initialize(routes, &blk)
         @routes = routes
         @stack = ActionDispatch::MiddlewareStack.new(&blk).build(@routes)
+        @secret = SecureRandom.hex
+        @key_generator = ActiveSupport::CachingKeyGenerator.new(
+          ActiveSupport::KeyGenerator.new(@secret, iterations: 2)
+        )
       end
       def call(env)
+        env[ActionDispatch::Cookies::GENERATOR_KEY] = @key_generator
+        env[ActionDispatch::Cookies::SIGNED_COOKIE_SALT] = SecureRandom.hex
+        if defined? ActionDispatch::Cookies::COOKIES_ROTATIONS
+          env[ActionDispatch::Cookies::COOKIES_ROTATIONS] = ActiveSupport::Messages::RotationConfiguration.new
+        end
         @stack.call(env)
       end
     end
