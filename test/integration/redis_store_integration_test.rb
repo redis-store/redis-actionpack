@@ -260,7 +260,9 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
       def call(env)
         env[ActionDispatch::Cookies::GENERATOR_KEY] = @key_generator
         env[ActionDispatch::Cookies::SIGNED_COOKIE_SALT] = SecureRandom.hex
-        env[ActionDispatch::Cookies::COOKIES_ROTATIONS] = ActiveSupport::Messages::RotationConfiguration.new
+        if defined? ActionDispatch::Cookies::COOKIES_ROTATIONS
+          env[ActionDispatch::Cookies::COOKIES_ROTATIONS] = ActiveSupport::Messages::RotationConfiguration.new
+        end
         @stack.call(env)
       end
     end
