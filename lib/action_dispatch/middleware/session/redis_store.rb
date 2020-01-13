@@ -18,6 +18,10 @@ module ActionDispatch
         super
       end
 
+      def generate_sid
+        Rack::Session::SessionId.new(super)
+      end
+
       private
 
       def set_cookie(env, _session_id, cookie)
