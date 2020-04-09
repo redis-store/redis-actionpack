@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gemspec
 
-gem "rake", "~> 10.5"
+gem "rake", ">= 12.3.3"
 gem "bundler", "~> 2.1"
 gem "mocha", "~> 0.14.0"
 gem "minitest-rails", "~> 6.0"
