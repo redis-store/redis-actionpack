@@ -1,4 +1,5 @@
 require 'redis-store'
+require 'should_send_same_site_none'
 require 'action_pack'
 require 'redis/actionpack/version'
 require 'action_dispatch/middleware/session/redis_store'

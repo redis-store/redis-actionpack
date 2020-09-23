@@ -2,6 +2,7 @@
 
 require 'redis-store'
 require 'redis-rack'
+require 'should_send_same_site_none'
 require 'action_dispatch/middleware/session/abstract_store'
 
 module ActionDispatch
