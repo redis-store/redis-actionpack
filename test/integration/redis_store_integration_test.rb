@@ -56,6 +56,30 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
     end
   end
 
+  test "shouldn't remove a same_site: none cookie when the user_agent is compatible" do
+    with_test_route_set(same_site: :none) do
+      https!
+
+      get '/set_session_value', headers: { "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36' }
+      assert_response :success
+
+      cookie = cookies.instance_variable_get('@cookies').first
+      assert cookie.instance_variable_get('@options')["SameSite"].present?
+    end
+  end
+
+  test "MUST remove a same_site: none cookie when the user_agent isn't compatible" do
+    with_test_route_set(same_site: :none) do
+      https!
+
+      get '/set_session_value', headers: { "User-Agent": 'Mozilla/5.0 doogiePIM/1.0.4.2 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36' }
+      assert_response :success
+
+      cookie = cookies.instance_variable_get('@cookies').first
+      assert cookie.instance_variable_get('@options')["SameSite"].nil?
+    end
+  end
+
   test "should set a secure cookie when the 'secure' option is set" do
     with_test_route_set(secure: true) do
       https!
