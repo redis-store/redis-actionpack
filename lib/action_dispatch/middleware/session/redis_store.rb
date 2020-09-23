@@ -26,7 +26,14 @@ module ActionDispatch
 
       def set_cookie(env, _session_id, cookie)
         request = wrap_in_request(env)
-        cookie_jar(request)[key] = cookie.merge(cookie_options)
+        if (request.user_agent.present? && !ShouldSendSameSiteNone.is_same_site_compatible(request.user_agent))
+          if (cookie[:same_site].present? && cookie[:same_site] == :none)
+            cookie.delete(:same_site)
+          end
+          cookie_jar(request)[key] = cookie.merge(cookie_options)
+        else
+          cookie_jar(request)[key] = cookie.merge(cookie_options)
+        end
       end
 
       def get_cookie(request)
