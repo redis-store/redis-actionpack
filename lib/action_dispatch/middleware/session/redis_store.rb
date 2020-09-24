@@ -31,10 +31,9 @@ module ActionDispatch
           if (cookie[:same_site].present? && cookie[:same_site] == :none)
             cookie.delete(:same_site)
           end
-          cookie_jar(request)[key] = cookie.merge(cookie_options)
-        else
-          cookie_jar(request)[key] = cookie.merge(cookie_options)
         end
+
+        cookie_jar(request)[key] = cookie.merge(cookie_options)
       end
 
       def get_cookie(request)
