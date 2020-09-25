@@ -1,3 +1,5 @@
 Dummy::Application.routes.draw do
-  get ':action', :to => TestController
+  TestController.actions.each do |action|
+    get action, to: ['test', action].join('#')
+  end
 end

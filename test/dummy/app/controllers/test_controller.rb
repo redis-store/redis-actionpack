@@ -1,4 +1,8 @@
 class TestController < ActionController::Base
+  def self.actions
+    public_instance_methods - ActionController::Base.public_instance_methods
+  end
+
   def no_session_access
     head :ok
   end
