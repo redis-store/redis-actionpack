@@ -22,6 +22,12 @@ module ActionDispatch
         Rack::Session::SessionId.new(super)
       end
 
+      def extract_session_id(request)
+        public_id = get_cookie(request)
+        public_id ||= request.params[key] unless @cookie_only
+        public_id && Rack::Session::SessionId.new(public_id)
+      end
+
       private
 
       def set_cookie(env, _session_id, cookie)
