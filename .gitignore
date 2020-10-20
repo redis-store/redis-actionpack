@@ -4,3 +4,4 @@ gemfiles/*.lock
 tmp/
 stdout
 gemfiles/vendor
+gemfiles/.bundle/
