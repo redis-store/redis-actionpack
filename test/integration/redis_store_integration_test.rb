@@ -82,6 +82,21 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
     end
   end
 
+  test "session should not get lost when signed" do
+    with_test_route_set(signed: true) do
+      https!
+
+      get '/set_session_value'
+      assert_response :success
+      jar = ActionDispatch::Cookies::CookieJar.build(request, cookies.to_hash)
+      assert jar.signed_or_encrypted['_session_id'].present?
+
+      # TODO This is failing even with the fix.
+      get '/get_session_value'
+      assert_response :success
+      assert_equal 'foo: "bar"', response.body
+    end
+  end
 
   test "should set a http-only cookie by default" do
     with_test_route_set do
