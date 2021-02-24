@@ -29,7 +29,6 @@ ActionController::Base.session_store = :redis_store,
   expire_after: 90.minutes,
   key: '_my_application_session',
   threadsafe: false,
-  signed: true,
   secure: true
 ```
 
@@ -44,9 +43,6 @@ A brief run-down of these options...
   this to `false` if you want to disable the global mutex lock on
   session data. It's `true` by default, meaning the mutex will be
   enabled.
-- **signed** uses signed/encrypted cookies to store the local session on
-  a client machine, preventing a malicious user from tampering with its
-  contents.
 - **secure** ensures HTTP cookies are transferred from server to client
   on a secure (HTTPS) connection
 
