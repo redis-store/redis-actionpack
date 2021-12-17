@@ -20,5 +20,5 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'redis-store', '>= 1.1.0', '< 2'
   s.add_runtime_dependency 'redis-rack',  '>= 2.1.0', '< 3'
-  s.add_runtime_dependency 'actionpack',  '>= 5', '< 7'
+  s.add_runtime_dependency 'actionpack',  '>= 5', '< 8'
 end
