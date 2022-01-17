@@ -11,6 +11,6 @@ gem "redis-store-testing", github: "redis-store/testing"
 gem "minitest-rails"
 gem "redis-store"
 gem "redis-rack"
-gem "actionpack", "~> 5.1.0"
+gem "actionpack", "~> 7.0.0"
 
 gemspec path: "../"
