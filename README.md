@@ -34,9 +34,8 @@ ActionController::Base.session_store = :redis_store,
 
 A brief run-down of these options...
 
-- **servers** is an Array of Redis server URLs that we will attempt to find
-  data from.<br>
-  The "session" at the end of the URL is used as the prefix of the key in the redis server.<br>
+- **servers** is an Array of Redis server URLs that we will attempt to find data from.
+  The "session" at the end of the URL is used as the prefix of the key in the redis server.
   you can use another expression as below.
   ```
   servers: [redis://localhost:6379/0, :namespace => 'session'],
