@@ -20,33 +20,29 @@ jobs:
         gemfile:
           [
             Gemfile,
+            gemfiles/rails_5.0.x.gemfile,
+            gemfiles/rails_5.1.x.gemfile,
             gemfiles/rails_5.2.x.gemfile,
             gemfiles/rails_6.0.x.gemfile,
           ]
         exclude:
           # Ruby 3.x is not supported by Rails 5.2.x
           - ruby_version: 3.1
-            gemfile: gemfiles/rails_5.2.x.gemfile,
-
-          # Ruby 3.x is not supported by Rails 5.2.x
+            gemfile: gemfiles/rails_5.2.x.gemfile
           - ruby_version: 3.0
-            gemfile: gemfiles/rails_5.2.x.gemfile,
+            gemfile: gemfiles/rails_5.2.x.gemfile
 
-          # Ruby 2.6.x is not supported by Rails 7.0.x
-          - ruby_version: 2.6
-            gemfile: gemfiles/rails_7.0.x.gemfile
+          # Ruby 3.x is not supported by Rails 5.1.x
+          - ruby_version: 3.1
+            gemfile: gemfiles/rails_5.1.x.gemfile
+          - ruby_version: 3.0
+            gemfile: gemfiles/rails_5.1.x.gemfile
 
-          # Ruby 2.6.x is not supported by this Gemfile
-          - ruby_version: 2.6
-            gemfile: Gemfile
-
-          # JRuby is not supported by Rails 7.0.x
-          - ruby_version: jruby
-            gemfile: gemfiles/rails_7.0.x.gemfile
-
-          # JRuby is not supported by this Gemfile
-          - ruby_version: jruby
-            gemfile: Gemfile
+          # Ruby 3.x is not supported by Rails 5.0.x
+          - ruby_version: 3.1
+            gemfile: gemfiles/rails_5.0.x.gemfile
+          - ruby_version: 3.0
+            gemfile: gemfiles/rails_5.0.x.gemfile
 
     runs-on: ubuntu-latest
 
