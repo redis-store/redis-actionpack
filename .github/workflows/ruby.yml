@@ -22,10 +22,9 @@ jobs:
             Gemfile,
             gemfiles/rails_5.2.x.gemfile,
             gemfiles/rails_6.0.x.gemfile,
-            gemfiles/rails_7.0.x.gemfile,
           ]
         exclude:
-          # Ruby 3.1 is not supported by Rails 5.2.x
+          # Ruby 3.x is not supported by Rails 5.2.x
           - ruby_version: 3.1
             gemfile: gemfiles/rails_5.2.x.gemfile,
 

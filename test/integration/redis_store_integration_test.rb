@@ -29,7 +29,11 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
       get '/set_session_value'
       assert_response :success
       assert cookies['_session_id'].present?
-      session_cookie = cookies.send(:hash_for)['_session_id']
+      if cookies.respond_to?(:get_cookie)
+        session_cookie = cookies.get_cookie('_session_id')
+      else
+        session_cookie = cookies.send(:hash_for)['_session_id']
+      end
 
       get '/call_reset_session'
       assert_response :success
