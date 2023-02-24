@@ -1,10 +1,12 @@
 name: CI
-
 on:
   push:
-
+    branches-ignore: [master]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
 jobs:
-  build:
+  test:
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     services:
@@ -47,10 +49,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby_version }}
           bundler-cache: true # 'bundle install' and cache
-      - name: Build and test with Rake
-        run: bundle exec rake
+      - run: bundle exec rake
