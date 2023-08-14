@@ -11,6 +11,9 @@ Gem::Specification.new do |s|
   s.summary     = %q{Redis session store for ActionPack}
   s.description = "#{s.summary}. Used for storing the Rails session in Redis."
   s.license     = 'MIT'
+  s.metadata    = {
+    "source_code_uri" => "https://github.com/redis-store/redis-actionpack"
+  }
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
