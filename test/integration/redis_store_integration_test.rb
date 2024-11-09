@@ -244,7 +244,7 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
   test "session store with all domains" do
     with_test_route_set(:domain => :all) do
       get '/set_session_value'
-      assert_match(/domain=\.example\.com/, headers['Set-Cookie'])
+      assert_match(/domain=\.?example\.com/, headers['Set-Cookie'])
     end
   end
 
