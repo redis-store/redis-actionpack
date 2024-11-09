@@ -8,17 +8,33 @@ require "rails/test_help"
 
 Rails.backtrace_cleaner.remove_silencers!
 
-def with_autoload_path(path)
-  path = File.join(File.dirname(__FILE__), "fixtures", path)
-  if ActiveSupport::Dependencies.autoload_paths.include?(path)
-    yield
-  else
-    begin
-      ActiveSupport::Dependencies.autoload_paths << path
+
+if Gem::Version.new(ActiveSupport.version) > Gem::Version.new('7.0')
+  # See: https://github.com/rails/rails/blob/v7.0.0/actionpack/test/abstract_unit.rb#L161
+  def with_autoload_path(path)
+    path = File.join(__dir__, "fixtures", path)
+    Zeitwerk.with_loader do |loader|
+      loader.push_dir(path)
+      loader.setup
       yield
     ensure
-      ActiveSupport::Dependencies.autoload_paths.reject! {|p| p == path}
-      ActiveSupport::Dependencies.clear
+      loader.unload
+    end
+  end
+else
+  # See: https://github.com/rails/rails/blob/v6.1.0/actionpack/test/abstract_unit.rb#L162
+  def with_autoload_path(path)
+    path = File.join(File.dirname(__FILE__), "fixtures", path)
+    if ActiveSupport::Dependencies.autoload_paths.include?(path)
+      yield
+    else
+      begin
+        ActiveSupport::Dependencies.autoload_paths << path
+        yield
+      ensure
+        ActiveSupport::Dependencies.autoload_paths.reject! {|p| p == path}
+        ActiveSupport::Dependencies.clear
+      end
     end
   end
 end
