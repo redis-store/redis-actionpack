@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 appraise 'rails_5.0' do
   gem 'redis-store'
   gem 'redis-rack'
