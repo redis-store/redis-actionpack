@@ -1,5 +1,7 @@
 require 'test_helper'
 
+return unless Gem::Version.new(ActiveSupport.version) < Gem::Version.new('7.2')
+
 class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
   SessionKey = '_session_id'
   SessionSecret = 'b3c631c314c0bbca50c1b2843150fe33'
