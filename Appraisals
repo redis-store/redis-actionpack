@@ -21,3 +21,9 @@ appraise 'rails_6.0' do
   gem 'redis-rack'
   gem 'actionpack', '~> 6.0.0'
 end
+
+appraise 'rails_6.1' do
+  gem 'redis-store'
+  gem 'redis-rack'
+  gem 'actionpack', '~> 6.1.0'
+end

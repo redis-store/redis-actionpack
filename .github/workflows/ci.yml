@@ -27,6 +27,7 @@ jobs:
           # - "truffleruby"
           # - 'truffleruby-head'
         rails:
+          - rails_6.1
           - rails_6.0
           - rails_5.2
           - rails_5.1
