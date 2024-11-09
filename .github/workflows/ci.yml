@@ -29,6 +29,7 @@ jobs:
           # - "truffleruby"
           # - 'truffleruby-head'
         rails:
+          - rails_7.2
           - rails_7.1
           - rails_7.0
           - rails_6.1
@@ -42,12 +43,17 @@ jobs:
         #   - 4_x
 
         exclude:
+          - ruby: '2.7'
+            rails: 'rails_7.2'
+
           - ruby: '3.0'
             rails: 'rails_5.0'
           - ruby: '3.0'
             rails: 'rails_5.1'
           - ruby: '3.0'
             rails: 'rails_5.2'
+          - ruby: '3.0'
+            rails: 'rails_7.2'
 
           - ruby: '3.1'
             rails: 'rails_5.0'
