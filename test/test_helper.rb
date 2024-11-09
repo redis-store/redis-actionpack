@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'minitest/autorun'
+require 'active_support'
 require 'active_support/core_ext/numeric/time'
 
 ENV["RAILS_ENV"] = "test"
