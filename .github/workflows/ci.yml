@@ -38,10 +38,6 @@ jobs:
           - rails_5.2
           - rails_5.1
           - rails_5.0
-        # redis:
-        #   - 4_0_x
-        #   - 4_1_x
-        #   - 4_x
 
         exclude:
           - ruby: '2.7'
@@ -91,14 +87,6 @@ jobs:
         image: redis
         ports:
           - 6379:6379
-      distributed1:
-        image: redis
-        ports:
-          - 6380:6380
-      distributed2:
-        image: redis
-        ports:
-          - 6381:6381
 
     steps:
       - uses: actions/checkout@v4
@@ -107,15 +95,3 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       - run: bundle exec rake
-
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #     - uses: ruby/setup-ruby@v1
-  #       with:
-  #         ruby-version: 3.1
-  #         bundler-cache: true
-  #     - run: bundle exec rake lint
