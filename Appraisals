@@ -37,3 +37,9 @@ appraise 'rails_7.0' do
   gem 'redis-rack'
   gem 'actionpack', '~> 7.0.0'
 end
+
+appraise 'rails_7.1' do
+  gem 'redis-store'
+  gem 'redis-rack'
+  gem 'actionpack', '~> 7.1.0'
+end
