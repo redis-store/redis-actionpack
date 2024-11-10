@@ -25,7 +25,7 @@ jobs:
 
           chmod 0600 ~/.gem/credentials
       - run: bundle exec rake release
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         with:
           files: "*.gem"
           generate_release_notes: true
