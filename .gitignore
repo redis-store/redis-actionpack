@@ -4,3 +4,4 @@ gemfiles/*.lock
 tmp/
 stdout
 gemfiles/vendor
+.DS_Store

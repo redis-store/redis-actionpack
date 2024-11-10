@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'redis-store'
 require 'action_pack'
 require 'redis/actionpack/version'

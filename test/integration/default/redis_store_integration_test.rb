@@ -1,5 +1,7 @@
 require 'test_helper'
 
+return unless Gem::Version.new(ActiveSupport.version) < Gem::Version.new('7.2')
+
 class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
   SessionKey = '_session_id'
   SessionSecret = 'b3c631c314c0bbca50c1b2843150fe33'
@@ -95,7 +97,11 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
       cookie = cookies.instance_variable_get('@cookies').first
       options = cookie.instance_variable_get('@options')
 
-      assert options.key?('HttpOnly')
+      if Gem::Version.new(ActiveSupport.version) < Gem::Version.new('7.1')
+        assert options.key?('HttpOnly')
+      else
+        assert options.key?('httponly')
+      end
     end
   end
 
@@ -107,7 +113,11 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
       cookie = cookies.instance_variable_get('@cookies').first
       options = cookie.instance_variable_get('@options')
 
-      assert !options.key?('HttpOnly')
+      if Gem::Version.new(ActiveSupport.version) < Gem::Version.new('7.1')
+        assert !options.key?('HttpOnly')
+      else
+        assert !options.key?('httponly')
+      end
     end
   end
 
@@ -244,7 +254,7 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
   test "session store with all domains" do
     with_test_route_set(:domain => :all) do
       get '/set_session_value'
-      assert_match(/domain=\.example\.com/, headers['Set-Cookie'])
+      assert_match(/domain=\.?example\.com/, headers['Set-Cookie'])
     end
   end
 

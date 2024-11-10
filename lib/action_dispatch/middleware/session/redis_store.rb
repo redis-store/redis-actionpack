@@ -35,6 +35,7 @@ module ActionDispatch
 
       def wrap_in_request(env)
         return env if env.is_a?(ActionDispatch::Request)
+
         ActionDispatch::Request.new(env)
       end
 
