@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.description = "#{s.summary}. Used for storing the Rails session in Redis."
   s.license     = 'MIT'
   s.metadata    = {
+    'changelog_uri' => 'https://github.com/redis-store/redis-actionpack/blob/master/CHANGELOG.md',
     'source_code_uri' => 'https://github.com/redis-store/redis-actionpack'
   }
 
