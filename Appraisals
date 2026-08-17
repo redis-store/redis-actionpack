@@ -61,9 +61,4 @@ appraise 'rails_8.0' do
   gem 'redis-store'
   gem 'redis-rack'
   gem 'actionpack', '~> 8.0.0'
-
-  # TODO: remove me when one of this PR is merged:
-  # * https://github.com/minitest/minitest-rails/pull/258
-  # * https://github.com/minitest/minitest-rails/pull/259
-  gem 'minitest-rails', git: 'https://github.com/n-rodriguez/minitest-rails.git', branch: 'wip/rails8'
 end
