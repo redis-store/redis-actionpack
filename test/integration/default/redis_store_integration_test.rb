@@ -97,11 +97,7 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
       cookie = cookies.instance_variable_get('@cookies').first
       options = cookie.instance_variable_get('@options')
 
-      if Gem::Version.new(ActiveSupport.version) < Gem::Version.new('7.1')
-        assert options.key?('HttpOnly')
-      else
-        assert options.key?('httponly')
-      end
+      assert options.keys.any? { |key| key.casecmp?('httponly') }
     end
   end
 
@@ -113,11 +109,7 @@ class RedisStoreIntegrationTest < ::ActionDispatch::IntegrationTest
       cookie = cookies.instance_variable_get('@cookies').first
       options = cookie.instance_variable_get('@options')
 
-      if Gem::Version.new(ActiveSupport.version) < Gem::Version.new('7.1')
-        assert !options.key?('HttpOnly')
-      else
-        assert !options.key?('httponly')
-      end
+      assert options.keys.none? { |key| key.casecmp?('httponly') }
     end
   end
 
