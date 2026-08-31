@@ -12,5 +12,6 @@ gem "tzinfo"
 gem "redis-store"
 gem "redis-rack"
 gem "actionpack", "~> 6.1.0"
+gem "concurrent-ruby", "< 1.3.5"
 
 gemspec path: "../"

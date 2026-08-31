@@ -26,12 +26,17 @@ appraise 'rails_6.0' do
   gem 'redis-rack'
   gem 'actionpack', '~> 6.0.0'
   gem 'tzinfo', '~> 1.2'
+
+  # ActiveSupport <= 6.1 uses Logger without requiring it, relying on
+  # concurrent-ruby to do so. concurrent-ruby 1.3.5 dropped that require.
+  gem 'concurrent-ruby', '< 1.3.5'
 end
 
 appraise 'rails_6.1' do
   gem 'redis-store'
   gem 'redis-rack'
   gem 'actionpack', '~> 6.1.0'
+  gem 'concurrent-ruby', '< 1.3.5'
 end
 
 appraise 'rails_7.0' do
@@ -56,9 +61,4 @@ appraise 'rails_8.0' do
   gem 'redis-store'
   gem 'redis-rack'
   gem 'actionpack', '~> 8.0.0'
-
-  # TODO: remove me when one of this PR is merged:
-  # * https://github.com/minitest/minitest-rails/pull/258
-  # * https://github.com/minitest/minitest-rails/pull/259
-  gem 'minitest-rails', git: 'https://github.com/n-rodriguez/minitest-rails.git', branch: 'wip/rails8'
 end
