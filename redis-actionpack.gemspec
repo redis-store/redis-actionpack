@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.7.0'
 
-  s.files = `git ls-files`.split("\n")
+  s.files = `git ls-files lib`.split($/) + ['CHANGELOG.md', 'MIT-LICENSE', 'README.md']
 
   s.add_dependency 'actionpack',  '>= 5'
   s.add_dependency 'redis-rack',  '>= 2.1.0', '< 4'
